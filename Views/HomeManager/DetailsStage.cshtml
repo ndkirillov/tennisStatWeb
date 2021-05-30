@@ -1,0 +1,67 @@
+﻿@using PraktikaWeb.Models;
+@model IEnumerable<PraktikaWeb.Models.ShotPlayerMatch>
+@{
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailsStage</title>
+    <style>
+        body {
+            background-image: url(https://wallpapermemory.com/uploads/546/tennis-wallpaper-hd-1920x1200-19145.jpg)
+        }
+
+        tr {
+            color: white;
+        }
+
+        h3 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+    <div>
+       
+        <h3>Детали стадии турнира </h3>
+        <table class="table">
+            <tr>
+                <th>Тип удара</th>
+                <th>Теннесист</th>
+                <th>Время</th>
+                <th>Счет</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.shot.Type</td>
+            <td>@item.players.Surname</td>
+            <td>@item.matchProgress.Minute</td>
+            <td>@item.matchProgress.Game_Score</td>
+           
+        </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Вернуться к турнирам", "Index")
+    </div>
+</body>
+</html>

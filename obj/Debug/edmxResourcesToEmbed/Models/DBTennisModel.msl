@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBTennisModelContainer" CdmEntityContainer="DBTennisContext">
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="DBTennisModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ID_Country" ColumnName="ID_Country" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Court">
+      <EntityTypeMapping TypeName="DBTennisModel.Court">
+        <MappingFragment StoreEntitySet="Court">
+          <ScalarProperty Name="ID_Court" ColumnName="ID_Court" />
+          <ScalarProperty Name="Type_Court" ColumnName="Type_Court" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match">
+      <EntityTypeMapping TypeName="DBTennisModel.Match">
+        <MappingFragment StoreEntitySet="Match">
+          <ScalarProperty Name="ID_Match" ColumnName="ID_Match" />
+          <ScalarProperty Name="Match_Score" ColumnName="Match_Score" />
+          <ScalarProperty Name="Match_Stage" ColumnName="Match_Stage" />
+          <ScalarProperty Name="ID_Tournament" ColumnName="ID_Tournament" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match_Tennis_Player">
+      <EntityTypeMapping TypeName="DBTennisModel.Match_Tennis_Player">
+        <MappingFragment StoreEntitySet="Match_Tennis_Player">
+          <ScalarProperty Name="ID_Match_Tennis_Player" ColumnName="ID_Match_Tennis_Player" />
+          <ScalarProperty Name="ID_Match" ColumnName="ID_Match" />
+          <ScalarProperty Name="ID_Player" ColumnName="ID_Player" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="DBTennisModel.Matches">
+        <MappingFragment StoreEntitySet="Matches">
+          <ScalarProperty Name="ID_Matches_string" ColumnName="ID_Matches_string" />
+          <ScalarProperty Name="Match_ID" ColumnName="Match_ID" />
+          <ScalarProperty Name="Tournament_Name" ColumnName="Tournament_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="DBTennisModel.Passwords">
+        <MappingFragment StoreEntitySet="Passwords">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person_Profile">
+      <EntityTypeMapping TypeName="DBTennisModel.Person_Profile">
+        <MappingFragment StoreEntitySet="Person_Profile">
+          <ScalarProperty Name="ID_Person" ColumnName="ID_Person" />
+          <ScalarProperty Name="Surname_Profile" ColumnName="Surname_Profile" />
+          <ScalarProperty Name="Name_Profile" ColumnName="Name_Profile" />
+          <ScalarProperty Name="Email_Profile" ColumnName="Email_Profile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shot">
+      <EntityTypeMapping TypeName="DBTennisModel.Shot">
+        <MappingFragment StoreEntitySet="Shot">
+          <ScalarProperty Name="ID_Shot" ColumnName="ID_Shot" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Spin_Rate" ColumnName="Spin_Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Start_Table">
+      <EntityTypeMapping TypeName="DBTennisModel.Start_Table">
+        <MappingFragment StoreEntitySet="Start_Table">
+          <ScalarProperty Name="ID_Table" ColumnName="ID_Table" />
+          <ScalarProperty Name="Tournament_info" ColumnName="Tournament_info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBTennisModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TennisPlayers">
+      <EntityTypeMapping TypeName="DBTennisModel.TennisPlayers">
+        <MappingFragment StoreEntitySet="TennisPlayers">
+          <ScalarProperty Name="ID_TennisPlayers" ColumnName="ID_TennisPlayers" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournament">
+      <EntityTypeMapping TypeName="DBTennisModel.Tournament">
+        <MappingFragment StoreEntitySet="Tournament">
+          <ScalarProperty Name="ID_Tournament" ColumnName="ID_Tournament" />
+          <ScalarProperty Name="Name_Tournament" ColumnName="Name_Tournament" />
+          <ScalarProperty Name="Type_Court" ColumnName="Type_Court" />
+          <ScalarProperty Name="Type_Tournament" ColumnName="Type_Tournament" />
+          <ScalarProperty Name="Prize_Money" ColumnName="Prize_Money" />
+          <ScalarProperty Name="Match_info" ColumnName="Match_info" />
+          <ScalarProperty Name="Country_info" ColumnName="Country_info" />
+          <ScalarProperty Name="Date_Start" ColumnName="Date_Start" />
+          <ScalarProperty Name="Date_Finish" ColumnName="Date_Finish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match_Progress">
+      <EntityTypeMapping TypeName="DBTennisModel.Match_Progress">
+        <MappingFragment StoreEntitySet="Match_Progress">
+          <ScalarProperty Name="ID_string_Progress" ColumnName="ID_string_Progress" />
+          <ScalarProperty Name="ID_Match" ColumnName="ID_Match" />
+          <ScalarProperty Name="Shot_Id" ColumnName="Shot_Id" />
+          <ScalarProperty Name="ID_Player" ColumnName="ID_Player" />
+          <ScalarProperty Name="Minute" ColumnName="Minute" />
+          <ScalarProperty Name="Game_Score" ColumnName="Game_Score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

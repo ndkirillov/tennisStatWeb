@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PraktikaWeb.Models.Person_Profile>
+
+@{
+     Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clients</title>
+    <style>
+        body {
+            background-image: url(https://wallpapermemory.com/uploads/546/tennis-wallpaper-hd-1920x1200-19145.jpg)
+        }
+
+        tr {
+            color: white;
+        }
+
+        h2 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname_Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name_Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_Profile)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname_Profile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_Profile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_Profile)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteClient", new { id=item.ID_Person })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

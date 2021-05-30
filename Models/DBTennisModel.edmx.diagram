@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c818e890811240c7a3b70105128e3a8d" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="DBTennisModel.Country" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Court" Width="1.5" PointX="8.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Match" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Match_Tennis_Player" Width="1.5" PointX="2.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Matches" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Passwords" Width="1.5" PointX="9.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Person_Profile" Width="1.5" PointX="11.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Shot" Width="1.5" PointX="3.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Start_Table" Width="1.5" PointX="13.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.TennisPlayers" Width="1.5" PointX="4.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Tournament" Width="1.5" PointX="11.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTennisModel.Match_Progress" Width="1.5" PointX="7" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DBTennisModel.FK_Tournament_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Tournament_Court" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Match_Progress_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Match_Tennis_Player_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Matches_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Match_Tennis_Player_TennisPlayers1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Person_Profile_Passwords" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Match_Progress_Shot" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Start_Table_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="DBTennisModel.FK_Match_Progress_TennisPlayers_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

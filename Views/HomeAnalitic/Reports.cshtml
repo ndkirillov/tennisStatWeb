@@ -1,0 +1,131 @@
+﻿@model PraktikaWeb.Models.ExportModel
+@{
+     Layout = "~/Views/Shared/_LayoutAnalitic.cshtml";
+}
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+    <script type="text/javascript">
+$(document).ready(function () {
+$(".datepicker").datepicker({
+dateFormat: "dd/mm/yy",
+changeMonth: true,
+changeYear: true,
+
+});
+
+});
+    </script>
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reports</title>
+    <style>
+        body {
+            background-image: url(https://wallpapermemory.com/uploads/546/tennis-wallpaper-hd-1920x1200-19145.jpg);
+        }
+        tr {
+            color: white;
+        }
+
+        h2 {
+            color: white
+        }
+        label{
+            color: white;
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h2>Создание запроса на вывод в отчет</h2>
+
+
+
+        @if (Model.category == "" || Model.category == null)
+        {
+            using (Html.BeginForm("Reports", "HomeAnalitic", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.startDate)
+                @Html.HiddenFor(model => model.stopDate)
+                @Html.HiddenFor(model => model.startSpeed)
+                @Html.HiddenFor(model => model.stopSpeed)
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p>
+
+                    @Html.DropDownListFor(model => model.category, ViewBag.TournamentOrShot as SelectList, "Выберите сущность")
+                </p>
+                <p><input type="submit" value="Подтверждаю сущность" /></p>
+            }
+        }
+        else if (Model.category == "Турниры")
+        {
+            using (Html.BeginForm("ShowReport", "HomeAnalitic", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <br /><br />
+                @Html.HiddenFor(model => model.category)
+                @Html.LabelFor(model => model.startDate, "С какой даты")
+                <br />
+                @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
+                <br /><br />
+                @Html.LabelFor(model => model.startDate, "По какую дату")
+                <br />
+                @Html.EditorFor(model => model.stopDate, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.stopDate, "", new { @class = "text-danger" })
+                <br /><br />
+
+                <p><input type="submit" value="Создать отчет" /></p>
+            }
+        }
+        else if (Model.category == "Удары")
+        {
+            using (Html.BeginForm("ShowReport", "HomeAnalitic", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <br /><br />
+                @Html.HiddenFor(model => model.category)
+                @Html.LabelFor(model => model.startSpeed, "Скорость с")
+                <br />
+                @Html.EditorFor(model => model.startSpeed)
+                @Html.ValidationMessageFor(model => model.startSpeed, "", new { @class = "text-danger" })
+                <br /><br />
+                @Html.LabelFor(model => model.stopSpeed, " по ")
+                <br />
+                @Html.EditorFor(model => model.stopSpeed)
+                @Html.ValidationMessageFor(model => model.stopSpeed, "", new { @class = "text-danger" })
+                <br /><br />
+
+                <p><input type="submit" value="Создать отчет" /></p>
+            }
+        }
+
+
+        @Html.ActionLink("Вернуться на главную", "Index")
+    </div>
+</body>
+</html>
+

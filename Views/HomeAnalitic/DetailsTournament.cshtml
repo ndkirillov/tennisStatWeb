@@ -1,0 +1,87 @@
+﻿@using PraktikaWeb.Models;
+@{
+    Layout = "~/Views/Shared/_LayoutAnalitic.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailsTournament</title>
+    <style>
+        tr {
+            color: white;
+        }
+
+        h3 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        @{
+            DBTennisContext db = new DBTennisContext();
+            int id = Model[0];
+            string TName = "";
+            string Dates = "";
+            using (db = new DBTennisContext())
+            {
+                var queryTournamentName = from p in db.Tournament
+
+                                          where p.ID_Tournament == id
+                                          select new
+                                          {
+                                              name = p.Name_Tournament,
+                                              dateStart = p.Date_Start,
+                                              dateStop = p.Date_Finish
+                                          };
+                foreach (var s in queryTournamentName)
+                {
+                    TName = s.name;
+                    Dates = s.dateStart.ToShortDateString() + " - " + s.dateStop.ToShortDateString();
+                }
+            }
+        }
+        <h3>Детали @TName турнира @Dates</h3>
+        <table class="table">
+            <tr>
+                <th>Стадия турнира</th>
+                <th>Счет</th>
+                <th>Игроки</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model[1])
+            {
+                <tr>
+                    <td>@item[0]</td>
+                    <td>@item[1]</td>
+                    <td>@item[2]</td>
+                    @{
+                        string stage = item[0];
+                        stage = stage.Replace("/", "");
+                    }
+                    <td>@Html.ActionLink("Детали", "DetailsStage", new { id = stage, IDTour = id })</td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Вернуться к турнирам", "Index")
+    </div>
+</body>
+</html>

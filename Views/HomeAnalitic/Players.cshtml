@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PraktikaWeb.Models.TennisPlayers>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAnalitic.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tennis Players</title>
+    <style>
+        body {
+            background-image: url(https://wallpapermemory.com/uploads/546/tennis-wallpaper-hd-1920x1200-19145.jpg)
+        }
+        tr {
+            color: white;
+        }
+
+        h2 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+ 
+
+    <table class="table">
+        <tr>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Возраст
+            </th>
+            <th>
+                Страна
+            </th>
+            <th>
+                Рейтинг
+            </th>
+            <th>
+                Ведущая рука
+            </th>
+      
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hand)
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

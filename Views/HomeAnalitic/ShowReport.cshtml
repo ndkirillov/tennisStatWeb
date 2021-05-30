@@ -1,0 +1,143 @@
+﻿@model  IEnumerable<PraktikaWeb.Models.ExportModel>
+@using PraktikaWeb.Models
+@{
+     Layout = "~/Views/Shared/_LayoutAnalitic.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowReport</title>
+   <style>
+        body {
+            background-image: url(https://wallpapermemory.com/uploads/546/tennis-wallpaper-hd-1920x1200-19145.jpg)
+        }
+        tr {
+            color: white;
+        }
+ 
+        h2 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        @{
+            string category = "";
+            string dateStart = "";
+            string dateStop = "";
+            int startS = 0;
+            int stopS = 0;
+
+            foreach (var s in Model)
+            {
+                category = s.category;
+                if (category == "Удары")
+                {
+                    startS = s.startSpeed;
+                    stopS = s.stopSpeed;
+                }
+                else
+                {
+                    dateStart = s.startDate;
+                    dateStop = s.stopDate;
+                }
+
+            }
+
+            if (category == "Удары")
+            {
+                <h2>Отчет по: @category c @startS по @stopS </h2>
+                <br />
+                @Html.ActionLink("Скачать в Excel", "ExportExcel", new { IdCategory = category, IdStartDate = dateStart, IdStopDate = dateStop, idStartS = startS, idStopS = stopS })
+                <br />
+                <table class="table">
+                    <tr>
+                        <th>
+                            Cкорость удара
+                        </th>
+                        <th>
+                            Фамилия игрока
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.shot.Speed)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.players.Surname)
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <h2>Отчет по: @category c @dateStart по @dateStop </h2>
+                <br />
+                @Html.ActionLink("Скачать в Excel", "ExportExcel", new { IdCategory = category, IdStartDate = dateStart, IdStopDate = dateStop, idStartS = startS, idStopS = stopS })
+                <br />
+                <table class="table">
+                    <tr>
+                        <th>
+                            Название турнира
+                        </th>
+                        <th>
+                            Страна
+                        </th>
+                        <th>
+                            Даты проведения
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tour.Name_Tournament)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.country.Country_Name)
+                            </td>
+                            <td>
+                                @{
+                                    string dates = item.tour.Date_Start.ToShortDateString() + " - " + item.tour.Date_Finish.ToShortDateString();
+                                }
+                                @dates
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+        }
+        @Html.ActionLink("Вернуться на главную", "Index")
+    </div>
+</body>
+</html>
+

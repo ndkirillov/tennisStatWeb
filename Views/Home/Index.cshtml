@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PraktikaWeb.Models.TournamentInfoModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        tr {
+            color: white;
+        }
+
+        h2 {
+            color: white
+        }
+
+        footer {
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+   
+    <table class="table">
+        <tr>
+            <th>Турнир</th>
+            <th>Страна</th>
+            <th>Дата проведения</th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>@item.tournament.Name_Tournament</td>
+        <td>@item.country.Country_Name</td>
+        <td>@item.tournament.Date_Start.ToShortDateString() - @item.tournament.Date_Finish.ToShortDateString()</td>
+        <td>
+
+            @Html.ActionLink("Детали турнира", "DetailsTournament", new { id = item.tournament.ID_Tournament }) 
+
+        </td>
+    </tr>
+    }
+    
+    </table>
+    
+</body>
+</html>
